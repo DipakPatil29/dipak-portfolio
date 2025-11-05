@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Portfolio</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Lucide Icons -->
+    <script type="module" src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* Add smooth scrolling for navigation links */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Custom styles and configuration for Inter font */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        
+        :root {
+            --bg-color: #121212;
+            --text-color: #e0e0e0;
+            --accent-color: #6366f1; /* Indigo 500 */
+            --card-bg: #1e1e1e;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        /* --- Slight Animation: Fade-in/Slide-up on Scroll --- */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            will-change: opacity, transform;
+        }
+
+        .animate-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Button Hover Effect */
+        .btn-primary {
+            transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+            background-color: #4f46e5; /* Indigo 600 */
+        }
+    </style>
+</head>
+<body class="antialiased leading-relaxed">
+
+    <!-- Header & Navigation -->
+    <header class="sticky top-0 z-50 bg-black/80 backdrop-blur-sm shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <a href="#home" class="text-xl font-bold text-white hover:text-indigo-400 transition">Dipak.</a>
+            <nav class="space-x-4 hidden sm:block">
+                <a href="#about" class="text-gray-300 hover:text-white transition">About</a>
+                <a href="#projects" class="text-gray-300 hover:text-white transition">Projects</a>
+                <a href="#publications" class="text-gray-300 hover:text-white transition">Publications</a>
+                <a href="#contact" class="text-gray-300 hover:text-white transition">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto">
+
+        <!-- 1. Hero Section -->
+        <section id="home" class="min-h-screen flex items-center justify-center pt-20 px-4 sm:px-6 lg:px-8">
+            <div class="text-center animate-on-scroll is-visible">
+                <p class="text-lg md:text-xl font-medium text-indigo-400 mb-2 tracking-wider uppercase">AI/ML Engineer | Building Intelligent Products</p>
+                <h1 class="text-6xl sm:text-7xl lg:text-8xl font-extrabold text-white mb-6 leading-tight">
+                    Hi, I'm <span class="text-indigo-500">Dipak</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-400 max-w-4xl mx-auto mb-10">
+                    Bridging data and automation through AI engineering.
+                </p>
+                <a href="#projects" class="btn-primary inline-flex items-center space-x-2 bg-indigo-500 text-white font-semibold py-3 px-8 rounded-full shadow-lg hover:bg-indigo-600 transition duration-300">
+                    <span>View My Work</span>
+                    <i data-lucide="arrow-right"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- 2. About Section -->
+        <section id="about" class="py-20 md:py-32 px-4 sm:px-6 lg:px-8 bg-card-bg/50 rounded-b-3xl">
+            <div class="animate-on-scroll">
+                <h2 class="text-4xl font-bold text-center text-white mb-16">About Me</h2>
+                <div class="grid lg:grid-cols-3 gap-12 items-center">
+                    <!-- Text Content & Skills Grid -->
+                    <div class="lg:col-span-2">
+                        <p class="text-lg text-gray-300 mb-6">
+                            I build intelligent systems powered by data and learning. My focus lies in **AI engineering, automation, and cybersecurity**, creating models that transform raw information into smart, actionable insights.
+                        </p>
+                        <p class="text-lg text-gray-300 mb-6">
+                            Driven by curiosity and precision, I use machine learning frameworks and real-world data to design scalable solutions that think, adapt, and evolve.
+                        </p>
+
+                        <!-- SKILLS CATEGORY BLOCK -->
+                        <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-6 p-6 bg-card-bg rounded-xl border border-indigo-900/50">
+                            
+                            <!-- Category 1: Languages -->
+                            <div>
+                                <h4 class="flex items-center text-indigo-400 font-bold text-lg mb-2">
+                                    <i data-lucide="code" class="w-5 h-5 mr-2"></i> Languages
+                                </h4>
+                                <p class="text-gray-300 text-sm">Python, JavaScript, C++</p>
+                            </div>
+                            
+                            <!-- Category 2: Frameworks -->
+                            <div>
+                                <h4 class="flex items-center text-indigo-400 font-bold text-lg mb-2">
+                                    <i data-lucide="layers-3" class="w-5 h-5 mr-2"></i> Frameworks
+                                </h4>
+                                <p class="text-gray-300 text-sm">TensorFlow, FastAPI, Django, React</p>
+                            </div>
+                            
+                            <!-- Category 3: Tools -->
+                            <div>
+                                <h4 class="flex items-center text-indigo-400 font-bold text-lg mb-2">
+                                    <i data-lucide="wrench" class="w-5 h-5 mr-2"></i> Tools
+                                </h4>
+                                <p class="text-gray-300 text-sm">Docker, Git, Jenkins, VS Code</p>
+                            </div>
+                            
+                            <!-- Category 4: Cloud -->
+                            <div>
+                                <h4 class="flex items-center text-indigo-400 font-bold text-lg mb-2">
+                                    <i data-lucide="cloud" class="w-5 h-5 mr-2"></i> Cloud
+                                </h4>
+                                <p class="text-gray-300 text-sm">AWS, GCP</p>
+                            </div>
+                            
+                            <!-- Category 5: Databases (Spanning two columns on small screens for layout) -->
+                            <div class="sm:col-span-2">
+                                <h4 class="flex items-center text-indigo-400 font-bold text-lg mb-2">
+                                    <i data-lucide="database" class="w-5 h-5 mr-2"></i> Databases
+                                </h4>
+                                <p class="text-gray-300 text-sm">MySQL, MongoDB</p>
+                            </div>
+                        </div>
+                        <!-- END SKILLS CATEGORY BLOCK -->
+
+                    </div>
+                    <!-- Mock Profile Image -->
+                    <div class="lg:col-span-1 hidden lg:block justify-self-center">
+                        <div class="w-64 h-64 bg-indigo-500/20 rounded-full border-4 border-indigo-500/50 flex items-center justify-center">
+                            <i data-lucide="user" class="w-24 h-24 text-indigo-400"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Projects Section -->
+        <section id="projects" class="py-20 md:py-32 px-4 sm:px-6 lg:px-8">
+            <div class="animate-on-scroll">
+                <h2 class="text-4xl font-bold text-center text-white mb-16">Selected Projects</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Project Card 1: Fake Review Detection -->
+                <div class="animate-on-scroll">
+                    <div class="bg-card-bg p-6 rounded-xl shadow-xl hover:shadow-2xl hover:scale-[1.02] transition duration-300 ease-in-out cursor-pointer group">
+                        <!-- Icon -->
+                        <div class="w-full h-32 bg-indigo-500/20 rounded-lg mb-4 flex items-center justify-center">
+                            <i data-lucide="file-text" class="w-12 h-12 text-indigo-400 group-hover:rotate-6 transition"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-white mb-2">Fake Review Detection</h3>
+                        <p class="text-gray-400 mb-4 text-sm">Built an ML model to classify online product reviews as fake or genuine, using TF-IDF, SVM, and Random Forest to ensure high detection accuracy.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs text-indigo-300 bg-indigo-900/30 px-2 py-0.5 rounded-full">Python</span>
+                            <span class="text-xs text-indigo-300 bg-indigo-900/30 px-2 py-0.5 rounded-full">Scikit-learn</span>
+                            <span class="text-xs text-indigo-300 bg-indigo-900/30 px-2 py-0.5 rounded-full">ML</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 2: Intrusion Detection System -->
+                <div class="animate-on-scroll">
+                    <div class="bg-card-bg p-6 rounded-xl shadow-xl hover:shadow-2xl hover:scale-[1.02] transition duration-300 ease-in-out cursor-pointer group">
+                        <!-- Icon -->
+                        <div class="w-full h-32 bg-indigo-500/20 rounded-lg mb-4 flex items-center justify-center">
+                            <i data-lucide="shield" class="w-12 h-12 text-indigo-400 group-hover:rotate-6 transition"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-white mb-2">Intrusion Detection System (IDS)</h3>
+                        <p class="text-gray-400 mb-4 text-sm">Developed an IDS integrating Suricata and OSSEC for real-time network intrusion monitoring. Visualized alerts and threat patterns using Kibana dashboards.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs text-indigo-300 bg-indigo-900/30 px-2 py-0.5 rounded-full">Suricata</span>
+                            <span class="text-xs text-indigo-300 bg-indigo-900/30 px-2 py-0.5 rounded-full">Kibana</span>
+                            <span class="text-xs text-indigo-300 bg-indigo-900/30 px-2 py-0.5 rounded-full">Linux</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project Card 3: Emotion Detection using Deep Learning -->
+                <div class="animate-on-scroll">
+                    <div class="bg-card-bg p-6 rounded-xl shadow-xl hover:shadow-2xl hover:scale-[1.02] transition duration-300 ease-in-out cursor-pointer group">
+                        <!-- Icon -->
+                        <div class="w-full h-32 bg-indigo-500/20 rounded-lg mb-4 flex items-center justify-center">
+                            <i data-lucide="smile" class="w-12 h-12 text-indigo-400 group-hover:rotate-6 transition"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-white mb-2">Emotion Detection</h3>
+                        <p class="text-gray-400 mb-4 text-sm">Implemented a Deep Learning model (CNN) using TensorFlow/Keras for real-time emotion recognition from facial expressions processed via OpenCV.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs text-indigo-300 bg-indigo-900/30 px-2 py-0.5 rounded-full">Deep Learning</span>
+                            <span class="text-xs text-indigo-300 bg-indigo-900/30 px-2 py-0.5 rounded-full">TensorFlow</span>
+                            <span class="text-xs text-indigo-300 bg-indigo-900/30 px-2 py-0.5 rounded-full">OpenCV</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            
+            
+        </section>
+        
+        <!-- 4. Publications and Research Section -->
+        <section id="publications" class="py-20 md:py-32 px-4 sm:px-6 lg:px-8 bg-card-bg/50 rounded-t-3xl">
+            <div class="animate-on-scroll">
+                <h2 class="text-4xl font-bold text-center text-white mb-16">Publications & Research</h2>
+            </div>
+
+            <div class="max-w-4xl mx-auto">
+                <div class="animate-on-scroll bg-card-bg p-6 md:p-8 rounded-xl shadow-xl border-l-4 border-indigo-500 flex flex-col md:flex-row gap-6">
+                    <div class="flex-shrink-0 text-indigo-400 hidden sm:block">
+                        <i data-lucide="book-open-check" class="w-10 h-10"></i>
+                    </div>
+                    <div class="flex-grow">
+                        <h3 class="text-2xl font-semibold text-white mb-2">
+                            Application to Detect Fake Reviews using CNN and Advanced Machine Learning Techniques.
+                        </h3>
+                        <p class="text-md font-medium text-indigo-300 mb-4">
+                            Dipak Patil
+                        </p>
+                        <p class="text-gray-400 mb-2">
+                            Published in: International Research Journal of Modernization in Engineering, Technology and Science, 2025.
+                        </p>
+                        <p class="text-sm text-gray-500 mb-4">
+                            Link: <a href="https://www.researchgate.net/publication/394268398_APPLICATION_TO_DETECT_FAKE_REVIEWS_USING_CNN_AND_ADVANCED_MACHINE_LEARNING_TECHNIQUES" target="_blank" class="text-indigo-400 hover:underline">View on ResearchGate</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Contact Section -->
+        <section id="contact" class="py-20 md:py-32 px-4 sm:px-6 lg:px-8">
+            <div class="animate-on-scroll">
+                <h2 class="text-4xl font-bold text-center text-white mb-4">Get In Touch</h2>
+                <p class="text-xl text-center text-gray-400 max-w-2xl mx-auto mb-12">
+                    Have a project idea or just want to say hi? Send me a message!
+                </p>
+
+                <!-- REAL CONTACT FORM using FormSubmit.co -->
+                <form action="https://formsubmit.co/patildipak2912@gmail.com" method="POST" class="max-w-xl mx-auto space-y-6" id="contact-form">
+                    <!-- Required for FormSubmit to redirect back to the page and suppress the default success page -->
+                    <input type="hidden" name="_next" value="[YOUR GITHUB PAGES URL]/index.html?success=true">
+                    
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-300 mb-2">Name</label>
+                        <input type="text" id="name" name="name" required class="w-full p-3 bg-card-bg border border-gray-700 rounded-lg text-white focus:ring-indigo-500 focus:border-indigo-500 transition" placeholder="Your Name">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-300 mb-2">Email</label>
+                        <input type="email" id="email" name="email" required class="w-full p-3 bg-card-bg border border-gray-700 rounded-lg text-white focus:ring-indigo-500 focus:border-indigo-500 transition" placeholder="you@example.com">
+                    </div>
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-gray-300 mb-2">Message</label>
+                        <textarea id="message" name="message" rows="4" required class="w-full p-3 bg-card-bg border border-gray-700 rounded-lg text-white focus:ring-indigo-500 focus:border-indigo-500 transition" placeholder="Your message..."></textarea>
+                    </div>
+                    
+                    <button type="submit" id="submitButton" class="btn-primary w-full inline-flex items-center justify-center space-x-2 bg-indigo-500 text-white font-semibold py-3 px-8 rounded-full shadow-lg hover:bg-indigo-600 transition duration-300">
+                        <span>Send Message</span>
+                        <i data-lucide="send"></i>
+                    </button>
+                    <!-- FormSubmit displays its own confirmation, so we remove the local message element -->
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-10 border-t border-gray-800 mt-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto text-center text-gray-500 text-sm">
+            <p>&copy; 2025 Dipak. All rights reserved.</p>
+            <div class="flex justify-center space-x-4 mt-4 text-gray-400">
+                <a href="https://www.linkedin.com/in/dipak-patil-b3973b31a/" target="_blank" class="hover:text-indigo-400 transition" aria-label="LinkedIn"><i data-lucide="linkedin"></i></a>
+                <a href="https://github.com/DipakPatil29" target="_blank" class="hover:text-indigo-400 transition" aria-label="GitHub"><i data-lucide="github"></i></a>
+                <a href="https://x.com/Dipak_P29" target="_blank" class="hover:text-indigo-400 transition" aria-label="Twitter/X"><i data-lucide="twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // NOTE: The previous handleFormSubmit(form) function has been removed
+        // because the form now uses FormSubmit.co, which handles the submission
+        // and redirect externally.
+
+        // Intersection Observer for Scroll Animations
+        document.addEventListener("DOMContentLoaded", function() {
+            // Find all elements to animate (excluding the hero section which is visible by default)
+            const elements = document.querySelectorAll('.animate-on-scroll:not(.is-visible)');
+            
+            const observerOptions = {
+                root: null, // relative to viewport
+                rootMargin: '0px',
+                threshold: 0.1 // 10% of element visible
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target); // Stop observing once visible
+                    }
+                });
+            }, observerOptions);
+
+            elements.forEach(el => {
+                observer.observe(el);
+            });
+            
+            // Initialize Lucide Icons
+            lucide.createIcons();
+            
+            // Handle success message after FormSubmit redirect
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('success') === 'true') {
+                const formSection = document.getElementById('contact');
+                if (formSection) {
+                    const successMessage = document.createElement('p');
+                    successMessage.textContent = 'Message sent successfully! Thank you for reaching out.';
+                    successMessage.className = 'mt-8 text-center text-lg font-bold text-green-400 animate-on-scroll is-visible';
+                    formSection.querySelector('.animate-on-scroll').appendChild(successMessage);
+
+                    // Clean up the URL hash if necessary
+                    history.replaceState(null, '', window.location.pathname + window.location.hash);
+                }
+            }
+        });
+    </script>
+</body>
+</html>
