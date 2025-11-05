@@ -96,10 +96,18 @@
                 <p class="text-xl md:text-2xl text-gray-400 max-w-4xl mx-auto mb-10">
                     Bridging data and automation through AI engineering.
                 </p>
-                <a href="#projects" class="btn-primary inline-flex items-center space-x-2 bg-indigo-500 text-white font-semibold py-3 px-8 rounded-full shadow-lg hover:bg-indigo-600 transition duration-300">
-                    <span>View My Work</span>
-                    <i data-lucide="arrow-right"></i>
-                </a>
+                <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                    <!-- View Resume Button -->
+                    <a href="https://drive.google.com/file/d/1Vo_sO5o2L7co0erOEBlgTTG5603DGp3u/view?usp=drive_link" target="_blank" class="btn-primary inline-flex items-center space-x-2 bg-gray-700 text-white font-semibold py-3 px-8 rounded-full shadow-lg hover:bg-gray-600 transition duration-300">
+                        <span>View Resume</span>
+                        <i data-lucide="file-text"></i>
+                    </a>
+                    <!-- View Work Button -->
+                    <a href="#projects" class="btn-primary inline-flex items-center space-x-2 bg-indigo-500 text-white font-semibold py-3 px-8 rounded-full shadow-lg hover:bg-indigo-600 transition duration-300">
+                        <span>View My Work</span>
+                        <i data-lucide="arrow-right"></i>
+                    </a>
+                </div>
             </div>
         </section>
 
@@ -109,9 +117,9 @@
                 <h2 class="text-4xl font-bold text-center text-white mb-16">About Me</h2>
                 <div class="grid lg:grid-cols-3 gap-12 items-center">
                     <!-- Text Content & Skills Grid -->
-                    <div class="lg:col-span-2">
+                    <div class="lg:col-span-3"> 
                         <p class="text-lg text-gray-300 mb-6">
-                            I build intelligent systems powered by data and learning. My focus lies in **AI engineering, automation, and cybersecurity**, creating models that transform raw information into smart, actionable insights.
+                            I build intelligent systems powered by data and learning. My focus lies in AI engineering, automation, and cybersecurity, creating models that transform raw information into smart, actionable insights.
                         </p>
                         <p class="text-lg text-gray-300 mb-6">
                             Driven by curiosity and precision, I use machine learning frameworks and real-world data to design scalable solutions that think, adapt, and evolve.
@@ -162,12 +170,6 @@
                         </div>
                         <!-- END SKILLS CATEGORY BLOCK -->
 
-                    </div>
-                    <!-- Mock Profile Image -->
-                    <div class="lg:col-span-1 hidden lg:block justify-self-center">
-                        <div class="w-64 h-64 bg-indigo-500/20 rounded-full border-4 border-indigo-500/50 flex items-center justify-center">
-                            <i data-lucide="user" class="w-24 h-24 text-indigo-400"></i>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -299,7 +301,6 @@
                         <span>Send Message</span>
                         <i data-lucide="send"></i>
                     </button>
-                    <!-- FormSubmit displays its own confirmation, so we remove the local message element -->
                 </form>
             </div>
         </section>
@@ -319,10 +320,6 @@
     </footer>
 
     <script>
-        // NOTE: The previous handleFormSubmit(form) function has been removed
-        // because the form now uses FormSubmit.co, which handles the submission
-        // and redirect externally.
-
         // Intersection Observer for Scroll Animations
         document.addEventListener("DOMContentLoaded", function() {
             // Find all elements to animate (excluding the hero section which is visible by default)
@@ -358,6 +355,7 @@
                     const successMessage = document.createElement('p');
                     successMessage.textContent = 'Message sent successfully! Thank you for reaching out.';
                     successMessage.className = 'mt-8 text-center text-lg font-bold text-green-400 animate-on-scroll is-visible';
+                    // We append the message inside the first animated div under the section
                     formSection.querySelector('.animate-on-scroll').appendChild(successMessage);
 
                     // Clean up the URL hash if necessary
