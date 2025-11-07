@@ -114,9 +114,9 @@
         <section id="about" class="py-20 md:py-32 px-4 sm:px-6 lg:px-8 bg-card-bg/50 rounded-b-3xl">
             <div class="animate-on-scroll">
                 <h2 class="text-4xl font-bold text-center text-white mb-16">About Me</h2>
-                <div class="grid lg:grid-cols-3 gap-12 items-center">
-                    <!-- Text Content & Skills Grid -->
-                    <div class="lg:col-span-3"> 
+                
+                <!-- This section was modified to max-w-3xl in the last turn (but the user provided the max-w-4xl version above, so I'm applying the max-w-3xl change again) -->
+                <div class="max-w-3xl mx-auto">
                         <p class="text-lg text-gray-300 mb-6">
                             I build intelligent systems powered by data and learning. My focus lies in AI engineering, automation, and cybersecurity, creating models that transform raw information into smart, actionable insights.
                         </p>
@@ -168,8 +168,6 @@
                             </div>
                         </div>
                         <!-- END SKILLS CATEGORY BLOCK -->
-
-                    </div>
                 </div>
             </div>
         </section>
@@ -295,8 +293,8 @@
 
                 <!-- REAL CONTACT FORM using FormSubmit.co -->
                 <form action="https://formsubmit.co/patildipak2912@gmail.com" method="POST" class="max-w-xl mx-auto space-y-6" id="contact-form">
-                    <!-- Corrected redirect URL to your live GitHub Pages site -->
-                    <input type="hidden" name="_next" value="https://dipakpatil29.github.io/dipak-portfolio/index.html?success=true">
+                    <!-- FIX 1: Add #contact anchor to the redirect URL -->
+                    <input type="hidden" name="_next" value="https://dipakpatil29.github.io/dipak-portfolio/index.html?success=true#contact">
                     
                     <!-- Added timeout for 5 seconds as requested -->
                     <input type="hidden" name="_timeout" value="5">
@@ -321,6 +319,8 @@
                         <span>Send Message</span>
                         <i data-lucide="send"></i>
                     </button>
+                    <!-- Container for success/error messages -->
+                    <div id="form-message-container" class="text-center min-h-[2rem]"></div>
                 </form>
             </div>
         </section>
@@ -346,6 +346,9 @@
         document.addEventListener("DOMContentLoaded", function() {
             // Find all elements to animate (excluding the hero section which is visible by default)
             const elements = document.querySelectorAll('.animate-on-scroll:not(.is-visible)');
+            const messageContainer = document.getElementById('form-message-container');
+            const submitButton = document.getElementById('submitButton');
+            const contactForm = document.getElementById('contact-form');
             
             const observerOptions = {
                 root: null, // relative to viewport
@@ -369,18 +372,36 @@
             // Initialize Lucide Icons
             lucide.createIcons();
             
+            // Add event listener to form to disable button on submission
+            if (contactForm && submitButton) {
+                contactForm.addEventListener('submit', function() {
+                    submitButton.disabled = true;
+                    submitButton.textContent = 'Sending...';
+                    submitButton.classList.add('opacity-75', 'cursor-not-allowed');
+                });
+            }
+
             // Handle success message after FormSubmit redirect
             const urlParams = new URLSearchParams(window.location.search);
             if (urlParams.get('success') === 'true') {
                 const formSection = document.getElementById('contact');
-                if (formSection) {
+                const formContainer = formSection.querySelector('.animate-on-scroll'); // The div containing H2, P, Form
+                
+                if (messageContainer && formContainer) {
                     const successMessage = document.createElement('p');
                     successMessage.textContent = 'Message sent successfully! Thank you for reaching out. Will get to you ASAP!!!';
                     successMessage.className = 'mt-8 text-center text-lg font-bold text-green-400 animate-on-scroll is-visible';
-                    // We append the message inside the first animated div under the section
-                    formSection.querySelector('.animate-on-scroll').appendChild(successMessage);
+                    
+                    // FIX 2: Append the message directly into the dedicated container
+                    messageContainer.appendChild(successMessage);
 
-                    // Clean up the URL hash if necessary
+                    // FIX 3: Scroll the container into view smoothly as a fallback/enhancement
+                    formContainer.scrollIntoView({ 
+                        behavior: 'smooth',
+                        block: 'start' // Scroll to the top of the contact section
+                    });
+                    
+                    // Clean up the URL query parameter (leaving the anchor #contact)
                     history.replaceState(null, '', window.location.pathname + window.location.hash);
                 }
             }
