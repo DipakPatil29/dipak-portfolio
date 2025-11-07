@@ -295,8 +295,11 @@
 
                 <!-- REAL CONTACT FORM using FormSubmit.co -->
                 <form action="https://formsubmit.co/patildipak2912@gmail.com" method="POST" class="max-w-xl mx-auto space-y-6" id="contact-form">
-                    <!-- Required for FormSubmit to redirect back to the page and suppress the default success page -->
-                    <input type="hidden" name="_next" value="[YOUR GITHUB PAGES URL]/index.html?success=true">
+                    <!-- Corrected redirect URL to your live GitHub Pages site -->
+                    <input type="hidden" name="_next" value="https://dipakpatil29.github.io/dipak-portfolio/index.html?success=true">
+                    
+                    <!-- Added timeout for 5 seconds as requested -->
+                    <input type="hidden" name="_timeout" value="5">
                     
                     <div>
                         <label for="name" class="block text-sm font-medium text-gray-300 mb-2">Name</label>
